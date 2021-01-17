@@ -1,0 +1,11 @@
+[Unit]
+Description=A reminder to look away
+Documentation=https://github.com/mfinelli/twentytwentytwenty
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/twentytwentytwenty
+Restart=always
+
+[Install]
+WantedBy=default.target

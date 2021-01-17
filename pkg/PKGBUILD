@@ -1,0 +1,39 @@
+# Maintainer: Mario Finelli <mario at finel dot li>
+
+pkgname=twentytwentytwenty
+pkgver=r3.2a338d3
+pkgrel=1
+pkgdesc="A reminder to look away every 20 minutes"
+arch=(x86_64)
+url=https://github.com/mfinelli/twentytwentytwenty
+license=(GPL3)
+depends=(gcc-libs)
+makedepends=(cargo git)
+source=(git+https://github.com/mfinelli/twentytwentytwenty.git
+        ./twentytwentytwenty.{desktop,service})
+sha256sums=('SKIP'
+            'b987cfce80ae1bfe317470e1f47a960b7376a28828de7aa8ce047d600e65fd50'
+            'e3cf69c88d16727144406e253dad209bd2dc20eee935444e0c28d5ae97cc3c50')
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" \
+    "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd  "$pkgname"
+  cargo build --release --locked
+}
+
+package() {
+  cd "$pkgname"
+  install -Dm0755 target/release/twentytwentytwenty \
+    "$pkgdir/usr/bin/twentytwentytwenty"
+  install -Dm0644 "$srcdir/twentytwentytwenty.desktop" \
+    "$pkgdir/usr/share/applications/twentytwentytwenty.service"
+  install -Dm0644 "$srcdir/twentytwentytwenty.service" \
+    "$pkgdir/usr/lib/systemd/user/twentytwentytwenty.service"
+}
+
+# vim: set ts=2 sw=2 et:
