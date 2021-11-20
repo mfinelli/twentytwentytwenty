@@ -8,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cargo build --verbose
+      - run: cargo install cargo-about
+      - run: make LICENSE-THIRD-PARTY
 
   fmt:
     runs-on: ubuntu-latest
