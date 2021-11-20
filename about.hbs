@@ -1,0 +1,18 @@
+The twentytwentytwenty source code itself does not bundle any third party
+libraries, but it depends on a number of libraries which carry their own
+copyright notices and license terms. These libraries are normally all linked
+statically into the binary distributions of twentytwentytwenty.
+
+====================
+
+{{#each licenses}}
+{{#each used_by}}
+* {{crate.name}}: {{crate.repository}}
+{{/each}}
+-
+
+{{text}}
+--------------------
+
+
+{{/each}}
