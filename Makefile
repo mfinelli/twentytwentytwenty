@@ -6,6 +6,9 @@ LICENSE-THIRD-PARTY: Cargo.lock about.hbs about.toml
 target/release/twentytwentytwenty: src/main.rs Cargo.lock
 	cargo build --release --locked
 
+pkg/twentytwentytwenty.png: pkg/twentytwentytwenty.xcf
+	magick $< -flatten $@
+
 clean:
 	rm -rf LICENSE-THIRD-PARTY target
 

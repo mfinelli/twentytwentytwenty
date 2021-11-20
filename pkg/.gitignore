@@ -3,3 +3,4 @@
 !PKGBUILD
 !*.desktop
 !*.service
+!*.xcf
