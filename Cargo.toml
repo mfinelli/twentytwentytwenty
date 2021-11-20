@@ -3,6 +3,7 @@ name = "twentytwentytwenty"
 version = "0.1.0"
 authors = ["Mario Finelli <mario@finel.li>"]
 edition = "2018"
+license = "GPL-3.0"
 
 [dependencies.notify-rust]
 version = "4"
