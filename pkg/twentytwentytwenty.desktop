@@ -5,6 +5,6 @@ Name=Twentytwentytwenty
 Comment=A reminder to look away
 Exec=twentytwentytwenty
 Icon=twentytwentytwenty
-Terminal=true
+Terminal=false
 StartupNotify=false
 Categories=Utility;
